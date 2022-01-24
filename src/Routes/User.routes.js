@@ -10,6 +10,7 @@ routes.get('/', (req, res) => {
 routes.get('/user/create', (req, res) => {
     UserController.createProduto();
     res.send("Foi");
+    
 });
 
 module.exports = routes;
