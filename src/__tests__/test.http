@@ -1,0 +1,9 @@
+###
+
+POST http://localhost:3000/user/create
+Content-Type: application/json
+
+{
+    "nome" : "Igor Mucharski",
+    "email" : "teste@hotmail.com"
+}

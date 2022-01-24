@@ -1,15 +1,15 @@
-const Sequelize = require('sequelize');
-const database = require('../database/db');
+const { Model, DataTypes } = require('sequelize');
 
-const User = database.define('user', {
-    id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
-    },
-    nome: {
-        type: Sequelize.STRING,
+class User extends Model {
+    static init(connection) {
+        super.init({
+            nome: DataTypes.STRING,
+            email: DataTypes.STRING,
+        }, {
+            sequelize: connection,
+        })
     }
-    
-});
+}
+
 
 module.exports = User;

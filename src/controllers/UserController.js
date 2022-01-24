@@ -3,11 +3,14 @@ const User = require('../models/User');
 
 module.exports = {
 
-    createProduto: () => {
-        User.create({
-            id: 2,
-            nome: "José"
-        })
+    async store(req, res) {
+        const { nome, email } = req.body;
+
+        const user = await User.create({
+            nome, email
+        });
+
+        return res.json(user);
     }
 }
 

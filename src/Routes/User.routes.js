@@ -7,10 +7,8 @@ routes.get('/', (req, res) => {
     res.send("Rota padrão");
 })
 
-routes.get('/user/create', (req, res) => {
-    UserController.createProduto();
-    res.send("Foi");
-    
+routes.get('/user/create', () => {
+    UserController.store();
 });
 
 module.exports = routes;

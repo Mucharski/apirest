@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const User = require('./src/models/User');
-const UserRotas = require('./src/Routes/User.routes');
+const UserRotas = require('./src/routes/User.routes');
 
 const app = express();
 
@@ -10,11 +10,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(UserRotas);
 
 (async () => {
-    const database = require('./src/database/db');
+    const database = require('./src/database/index.js');
 
     try {
         const resultado = await database.sync();
-        console.log(resultado);
+        console.log(resultado.options.dialect);
     } catch (error) {
         console.log(error);
     }
