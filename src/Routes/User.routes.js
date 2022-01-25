@@ -1,14 +1,15 @@
-const { Router } = require('express');
+const express = require('express');
 const UserController = require('../controllers/UserController');
 
-const routes = require('express').Router();
+const routes = express.Router();
+
 
 routes.get('/', (req, res) => {
     res.send("Rota padrão");
 })
 
-routes.get('/user/create', () => {
-    UserController.store();
-});
+routes.post('/user/create', UserController.store);
+
+routes.get('/user/list', UserController.listAll);
 
 module.exports = routes;
